@@ -1,0 +1,45 @@
+---
+title: 'MacBook Pro 2022'
+description: >-
+  The new MacBook Pro 2022 is here. With the Apple M2 chip, a new design, and
+  more, the new MacBook Pro is the best laptop Apple has ever made.
+pubDate: 2022-07-01T22:00:00.000Z
+heroImage: ../../assets/images/bg.jpg
+category: Category 1
+tags:
+  - JavaScript
+  - css
+  - HTML5
+  - GitHub
+---
+
+# Title
+
+
+-- Example MDX file demonstrating a calculation
+
+-- Specify the cube and default member
+SELECT
+    [Measures].[Sales Amount] ON COLUMNS,
+    [Date].[Calendar].[Month].Members ON ROWS
+FROM
+    [SalesCube]
+WHERE
+    [Date].[Calendar].[Year].[2023];
+
+-- Define a calculated member for calculating average sales per month
+WITH 
+    MEMBER [Measures].[Avg Sales per Month] AS
+        [Measures].[Sales Amount] / [Date].[Calendar].[Month].Count
+    -- Optionally, format the output to display as currency
+    FORMAT_STRING = "Currency";
+
+-- Output the results with the calculated member included
+SELECT
+    [Measures].[Sales Amount],
+    [Measures].[Avg Sales per Month] ON COLUMNS,
+    [Date].[Calendar].[Month].Members ON ROWS
+FROM
+    [SalesCube]
+WHERE
+    [Date].[Calendar].[Year].[2023];
